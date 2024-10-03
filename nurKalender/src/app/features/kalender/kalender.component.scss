@@ -1,44 +1,83 @@
 $standartViewportView : 4vw;
 $textColorDark : #1d1d1d;
 $textColorLight : #525252;
+$kalenderWidthSize : 60%;
 
-.header {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 0.5rem;
-    padding: $standartViewportView;
+@mixin anton-font {
+    font-family: "Anton", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
 
-    .header-child-left {
-        font-size: calc($standartViewportView - 2vw);
-        
-        font-family: "Anton", sans-serif;
-        font-weight: 800;
-        font-style: normal;
-        letter-spacing: calc($standartViewportView / 10);
+.container-kalender {
+    display: flex;
+    justify-content: center;
 
-        .text-Month{
-            color: $textColorDark;
+    .header {
+        width: $kalenderWidthSize;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 0.5rem;
+        padding: $standartViewportView - 2vw;
+
+        .header-child-left {
+            font-size: calc($standartViewportView - 2vw);
+
+            @include anton-font;
+            letter-spacing: calc($standartViewportView / 10);
+
+            .text-Month {
+                color: $textColorDark;
+            }
+
+            .text-year {
+                color: $textColorLight;
+            }
         }
-        .text-year{
-            color: $textColorLight;
+
+        .header-child-right {
+            display: grid;
+            grid-template-rows: auto auto;
+
+            font-size: calc($standartViewportView / 2.5);
+            @include anton-font;
+            text-align: right;
+
+
+            .monthly-spand {
+                color: $textColorDark;
+            }
+
+            .currency {
+                color: $textColorLight;
+            }
         }
     }
+}
 
-    .header-child-right {
-        display: grid;
-        grid-template-rows: auto auto;
+@media only screen and (max-width: 858px) {
+    .container-kalender {
+        .header {
+            width: 100%;
+            padding: $standartViewportView;
 
-        font-size: calc($standartViewportView / 2.5);
-        font-family: "Anton", sans-serif;
-        font-style: normal;
-        text-align: right;
-        
-        
-        .monthly-spand{
-            color: $textColorDark;
-        }
-        .currency{
-            color: $textColorLight;
+            .header-child-left {
+                font-size: calc($standartViewportView - 0.5vw);
+
+                letter-spacing: calc($standartViewportView / 5);
+
+                .text-Month {}
+
+                .text-year {}
+            }
+
+            .header-child-right {
+                font-size: calc($standartViewportView / 1.2);
+
+                .monthly-spand {}
+
+                .currency {}
+            }
         }
     }
 }
