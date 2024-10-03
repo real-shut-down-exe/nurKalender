@@ -1,0 +1,44 @@
+$standartViewportView : 4vw;
+$textColorDark : #1d1d1d;
+$textColorLight : #525252;
+
+.header {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+    padding: $standartViewportView;
+
+    .header-child-left {
+        font-size: calc($standartViewportView - 2vw);
+        
+        font-family: "Anton", sans-serif;
+        font-weight: 800;
+        font-style: normal;
+        letter-spacing: calc($standartViewportView / 10);
+
+        .text-Month{
+            color: $textColorDark;
+        }
+        .text-year{
+            color: $textColorLight;
+        }
+    }
+
+    .header-child-right {
+        display: grid;
+        grid-template-rows: auto auto;
+
+        font-size: calc($standartViewportView / 2.5);
+        font-family: "Anton", sans-serif;
+        font-style: normal;
+        text-align: right;
+        
+        
+        .monthly-spand{
+            color: $textColorDark;
+        }
+        .currency{
+            color: $textColorLight;
+        }
+    }
+}
