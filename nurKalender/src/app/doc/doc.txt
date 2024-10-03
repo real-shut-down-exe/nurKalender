@@ -1,0 +1,13 @@
+app/
+│
+├── app.component.ts
+├── app.component.html
+├── app.component.css
+├── app.module.ts
+├── core/              # Core services and single-use components (e.g., authentication services)
+├── shared/            # Shared modules, components, pipes, and directives used across the app
+├── features/          # Feature-specific components (e.g., user, products, etc.)
+├── services/          # Application-wide services (e.g., API interaction)
+├── models/            # Interfaces or classes representing the data models
+└── routing/           # Routes of the application (often inside `app.module.ts` as well)
+
