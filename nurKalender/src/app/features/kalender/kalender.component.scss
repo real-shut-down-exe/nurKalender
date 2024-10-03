@@ -3,15 +3,19 @@ $textColorDark : #1d1d1d;
 $textColorLight : #525252;
 $kalenderWidthSize : 60%;
 
+// days
+$daysBgColor : #323234;
+
 @mixin anton-font {
     font-family: "Anton", sans-serif;
     font-weight: 800;
     font-style: normal;
 }
 
-.container-kalender {
+.container-header {
     display: flex;
     justify-content: center;
+
 
     .header {
         width: $kalenderWidthSize;
@@ -19,6 +23,7 @@ $kalenderWidthSize : 60%;
         grid-template-columns: auto auto;
         gap: 0.5rem;
         padding: $standartViewportView - 2vw;
+        padding-bottom: $standartViewportView - 2.8vw;;
 
         .header-child-left {
             font-size: calc($standartViewportView - 2vw);
@@ -55,8 +60,41 @@ $kalenderWidthSize : 60%;
     }
 }
 
+.container-kalender {
+    .kalender {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .days {
+            width: $kalenderWidthSize;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto;
+            gap: 1vw;
+
+            .day {
+                background-color: $daysBgColor;
+                color: rgb(246, 241, 241);
+                padding: 0.5vw 1vw;
+                border-radius: 10vw;
+                font-size: $standartViewportView / 4.5;
+                font-weight: 600;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                letter-spacing: 2px;
+                text-align: center;
+            }
+        }
+
+        .fdfd{
+            width: $kalenderWidthSize;
+            background-color: #525252;
+        }
+    }
+}
+
 @media only screen and (max-width: 858px) {
-    .container-kalender {
+    .container-header {
         .header {
             width: 100%;
             padding: $standartViewportView;
@@ -79,5 +117,7 @@ $kalenderWidthSize : 60%;
                 .currency {}
             }
         }
+
+        .kalender-days {}
     }
 }
