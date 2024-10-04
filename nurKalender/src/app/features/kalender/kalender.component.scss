@@ -1,6 +1,6 @@
 $standartViewportView : 4vw;
 $colorDark : #1c2423;
-$colorLight : #525252ba;
+$colorLight : #272536ba;
 $colorEmpty : #5252523a;
 $kalenderWidthSize : 60%;
 
@@ -18,7 +18,7 @@ $daysBgColor : #323234;
     letter-spacing: 1px;
     font-weight: 600;
     font-size: large;
-    margin: 0.3vw;;
+    margin: 0.3vw;
 }
 
 .container-header {
@@ -83,82 +83,153 @@ $daysBgColor : #323234;
 
             .daysOfTheWeek {
                 background-color: $colorDark;
-                @include singleDays;
                 border-radius: 3vw;
                 padding: 0.5vw 1vw;
-                margin-bottom: 0.6vw;
                 color: rgb(246, 247, 248);
-                text-align: center;
+                margin: 0vw 0.1vw;
+                margin-bottom: 0.6vw !important;
+                
+                .dayName{
+                    @include singleDays;
+                    text-align: center;
+                }
             }
-            
+
             .daysOfTheMonth {
                 background-color: $colorLight;
                 @include singleDays;
                 border-radius: 1vw;
                 padding: 0.8vw;
                 height: 5vw;
+                position: relative;
+
+                .invoices {
+                    // background-color: antiquewhite;
+                    height: calc(100% - 1.3vw);
+                }
+
+                .numberOfDays {
+                    position: absolute;
+                    bottom: 0.5vw;
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    font-size: large;
+                    font-size: 1.3vw;
+                    color: white;
+                }
             }
-            
-            .empty{
+
+            .empty {
                 background-color: $colorEmpty;
             }
         }
     }
 }
 
-// @media only screen and (max-width: 858px) {
-//     .container-header {
-//         .header {
-//             width: 100%;
-//             padding: $standartViewportView;
-//             padding-bottom: $standartViewportView - 2.8vw;
+@media only screen and (max-width: 858px) {
+    .container-header {
+        .header {
+            width: 100%;
+            padding: $standartViewportView;
+            padding-bottom: $standartViewportView - 2.8vw;
 
-//             .header-child-left {
-//                 font-size: calc($standartViewportView - 0.5vw);
+            .header-child-left {
+                font-size: calc($standartViewportView - 0.5vw);
 
-//                 letter-spacing: calc($standartViewportView / 5);
+                letter-spacing: calc($standartViewportView / 5);
 
-//                 .text-Month {}
+                .text-Month {}
 
-//                 .text-year {}
-//             }
+                .text-year {}
+            }
 
-//             .header-child-right {
-//                 font-size: calc($standartViewportView / 1.2);
+            .header-child-right {
+                font-size: calc($standartViewportView / 1.2);
 
-//                 .monthly-spand {}
+                .monthly-spand {}
 
-//                 .currency {}
-//             }
-//         }
+                .currency {}
+            }
+        }
 
-//         .kalender-days {}
-//     }
+        .kalender-days {}
+    }
 
-//     .kalenderContainer {
-//         .kalender {
-//             margin: 2vw 4vw;
+    .kalenderContainer {
+        display: flex;
+        justify-content: center;
 
-//             .daysOfWeek {
-//                 width: 100%;
+        .kalender {
+            width: 100%;
+            display: unset;
+            align-items: unset;
+            justify-content: unset;
+            flex-direction: unset;
 
-//                 .day {
-//                     background-color: $daysBgColor;
-//                     color: rgb(246, 241, 241);
-//                     padding: 0.5vw 1vw;
-//                     border-radius: 10vw;
-//                     font-size: $standartViewportView - 1.5vw;
-//                     font-weight: 600;
-//                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-//                     letter-spacing: 2px;
-//                     text-align: center;
-//                 }
-//             }
+            .month {
+                width: unset;
+                padding: $standartViewportView - 2vw;
+                // display: grid;
+                // grid-template-columns: auto auto auto auto auto auto auto;
 
-//             .days {
-//                 width: $kalenderWidthSize;
-//                 background-color: #525252;
-//             }
-//         }
-//     }
-// }
+                .daysOfTheWeek {
+                    font-size: 2vw;
+                    height: 4vw;
+                    margin: 0vw 0.4vw;
+                    margin-bottom: 1.5vw !important;
+
+                    .dayName{
+                        font-weight: 600;
+                        font-size: larger;
+                        font-size: 3vw;
+                    }
+
+                    // background-color: $colorDark;
+                    // @include singleDays;
+                    // border-radius: 3vw;
+                    // padding: 0.5vw 1vw;
+                    // margin-bottom: 0.8vw;
+                    // color: rgb(246, 247, 248);
+                    // text-align: center;
+                }
+
+                .daysOfTheMonth {
+                    font-size: 2vw;
+                    // background-color: $colorLight;
+                    // @include singleDays;
+                    // border-radius: 1vw;
+                    // padding: 0.8vw;
+                    height: 12vh;
+                    // position: relative;
+
+                    .invoices {
+                        // background-color: antiquewhite;
+                        // height: calc(100% - 1.3vw);
+                    }
+
+                    .numberOfDays {
+                        // position: absolute;
+                        // bottom: 0.5vw;
+                        // left: 50%;
+                        // transform: translateX(-50%);
+
+                        // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                        // letter-spacing: 1px;
+                        font-weight: 900;
+                        font-size: larger;
+                        font-size: 4vw;
+                        // color: white;
+                    }
+                }
+
+                .empty {
+                    // background-color: $colorEmpty;
+                }
+            }
+        }
+    }
+}
