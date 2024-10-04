@@ -1,5 +1,5 @@
 $standartViewportView : 4vw;
-$colorDark : #1d1d1d;
+$colorDark : #1c2423;
 $colorLight : #525252ba;
 $colorEmpty : #5252523a;
 $kalenderWidthSize : 60%;
@@ -14,7 +14,11 @@ $daysBgColor : #323234;
 }
 
 @mixin singleDays {
-    margin: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: large;
+    margin: 0.3vw;;
 }
 
 .container-header {
@@ -81,15 +85,16 @@ $daysBgColor : #323234;
                 background-color: $colorDark;
                 @include singleDays;
                 border-radius: 3vw;
-                padding: 1vw 2vw;
+                padding: 0.5vw 1vw;
                 margin-bottom: 0.6vw;
+                color: rgb(246, 247, 248);
             }
             
             .daysOfTheMonth {
                 background-color: $colorLight;
                 @include singleDays;
                 border-radius: 1vw;
-                padding: 3vw 2vw;
+                padding: 2.5vw 1vw;
             }
             
             .empty{
