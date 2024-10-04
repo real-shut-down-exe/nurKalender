@@ -88,13 +88,15 @@ $daysBgColor : #323234;
                 padding: 0.5vw 1vw;
                 margin-bottom: 0.6vw;
                 color: rgb(246, 247, 248);
+                text-align: center;
             }
             
             .daysOfTheMonth {
                 background-color: $colorLight;
                 @include singleDays;
                 border-radius: 1vw;
-                padding: 2.5vw 1vw;
+                padding: 0.8vw;
+                height: 5vw;
             }
             
             .empty{
