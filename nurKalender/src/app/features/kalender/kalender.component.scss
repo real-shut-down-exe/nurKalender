@@ -1,6 +1,7 @@
 $standartViewportView : 4vw;
-$textColorDark : #1d1d1d;
-$textColorLight : #525252;
+$colorDark : #1d1d1d;
+$colorLight : #525252ba;
+$colorEmpty : #5252523a;
 $kalenderWidthSize : 60%;
 
 // days
@@ -12,6 +13,10 @@ $daysBgColor : #323234;
     font-style: normal;
 }
 
+@mixin singleDays {
+    margin: 3px;
+}
+
 .container-header {
     display: flex;
     justify-content: center;
@@ -21,9 +26,9 @@ $daysBgColor : #323234;
         width: $kalenderWidthSize;
         display: grid;
         grid-template-columns: auto auto;
-        gap: 0.5rem;
+        gap: 1vw;
         padding: $standartViewportView - 2vw;
-        padding-bottom: $standartViewportView - 2.8vw;;
+        padding-bottom: $standartViewportView - 2.8vw;
 
         .header-child-left {
             font-size: calc($standartViewportView - 2vw);
@@ -32,11 +37,11 @@ $daysBgColor : #323234;
             letter-spacing: calc($standartViewportView / 10);
 
             .text-Month {
-                color: $textColorDark;
+                color: $colorDark;
             }
 
             .text-year {
-                color: $textColorLight;
+                color: $colorLight;
             }
         }
 
@@ -50,74 +55,103 @@ $daysBgColor : #323234;
 
 
             .monthly-spand {
-                color: $textColorDark;
+                color: $colorDark;
             }
 
             .currency {
-                color: $textColorLight;
+                color: $colorLight;
             }
         }
     }
 }
 
-.container-kalender {
+.kalenderContainer {
     .kalender {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
 
-        .days {
-            width: $kalenderWidthSize;
+        .month {
             display: grid;
             grid-template-columns: auto auto auto auto auto auto auto;
-            gap: 1vw;
+            width: 60%;
 
-            .day {
-                background-color: $daysBgColor;
-                color: rgb(246, 241, 241);
-                padding: 0.5vw 1vw;
-                border-radius: 10vw;
-                font-size: $standartViewportView / 4.5;
-                font-weight: 600;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                letter-spacing: 2px;
-                text-align: center;
+            .daysOfTheWeek {
+                background-color: $colorDark;
+                @include singleDays;
+                border-radius: 3vw;
+                padding: 1vw 2vw;
+                margin-bottom: 0.6vw;
             }
-        }
-
-        .fdfd{
-            width: $kalenderWidthSize;
-            background-color: #525252;
+            
+            .daysOfTheMonth {
+                background-color: $colorLight;
+                @include singleDays;
+                border-radius: 1vw;
+                padding: 3vw 2vw;
+            }
+            
+            .empty{
+                background-color: $colorEmpty;
+            }
         }
     }
 }
 
-@media only screen and (max-width: 858px) {
-    .container-header {
-        .header {
-            width: 100%;
-            padding: $standartViewportView;
+// @media only screen and (max-width: 858px) {
+//     .container-header {
+//         .header {
+//             width: 100%;
+//             padding: $standartViewportView;
+//             padding-bottom: $standartViewportView - 2.8vw;
 
-            .header-child-left {
-                font-size: calc($standartViewportView - 0.5vw);
+//             .header-child-left {
+//                 font-size: calc($standartViewportView - 0.5vw);
 
-                letter-spacing: calc($standartViewportView / 5);
+//                 letter-spacing: calc($standartViewportView / 5);
 
-                .text-Month {}
+//                 .text-Month {}
 
-                .text-year {}
-            }
+//                 .text-year {}
+//             }
 
-            .header-child-right {
-                font-size: calc($standartViewportView / 1.2);
+//             .header-child-right {
+//                 font-size: calc($standartViewportView / 1.2);
 
-                .monthly-spand {}
+//                 .monthly-spand {}
 
-                .currency {}
-            }
-        }
+//                 .currency {}
+//             }
+//         }
 
-        .kalender-days {}
-    }
-}
+//         .kalender-days {}
+//     }
+
+//     .kalenderContainer {
+//         .kalender {
+//             margin: 2vw 4vw;
+
+//             .daysOfWeek {
+//                 width: 100%;
+
+//                 .day {
+//                     background-color: $daysBgColor;
+//                     color: rgb(246, 241, 241);
+//                     padding: 0.5vw 1vw;
+//                     border-radius: 10vw;
+//                     font-size: $standartViewportView - 1.5vw;
+//                     font-weight: 600;
+//                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+//                     letter-spacing: 2px;
+//                     text-align: center;
+//                 }
+//             }
+
+//             .days {
+//                 width: $kalenderWidthSize;
+//                 background-color: #525252;
+//             }
+//         }
+//     }
+// }

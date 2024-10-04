@@ -20,6 +20,39 @@ export class KalenderComponent {
     { id: 7, name: "SAT" }
   ];
 
-  constructor() { }
+  currentDate: Date = new Date();
+  daysInMonth: number[] = [];
+  firstDayOfMonth: number = 0;
+  lastDayOfMonth: number = 0;
+  totalDays: (number | null)[] = [];
 
+
+  ngOnInit(): void {
+    this.loadCalendar(this.currentDate);
+  }
+
+  loadCalendar(date: Date) {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+
+    // Ayın gün sayısını al
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    this.daysInMonth = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+    // Ayın ilk günü (0: Pazar, 1: Pazartesi, ..., 6: Cumartesi)
+    this.firstDayOfMonth = new Date(year, month, 1).getDay();
+    this.lastDayOfMonth = new Date(year, month + 1, 0).getDay();
+
+    // Boş günleri ekle
+    const emptySlotsBefore = Array.from({ length: this.firstDayOfMonth }, () => null);
+    const emptySlotsAfter = Array.from({ length: 6 - this.lastDayOfMonth }, () => null);
+
+    // Tüm günleri birleştir
+    this.totalDays = [...emptySlotsBefore, ...this.daysInMonth, ...emptySlotsAfter];
+  }
+
+  changeMonth(direction: number) {
+    this.currentDate.setMonth(this.currentDate.getMonth() + direction);
+    this.loadCalendar(this.currentDate);
+  }
 }

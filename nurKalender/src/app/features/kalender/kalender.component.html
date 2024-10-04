@@ -1,5 +1,4 @@
 <div class="container-header">
-
     <div class="header">
         <div class="header-child-left">
             <span class="text-Month">
@@ -18,18 +17,22 @@
             </span>
         </div>
     </div>
-
 </div>
 
-<div class="container-kalender">
+<div class="kalenderContainer">
     <div class="kalender">
-        <div class="days">
-            <div class="day" *ngFor="let day of daysOfWeek;">
+        <div class="month">
+            <!-- <div class="header">
+                <button (click)="changeMonth(-1)">Önceki</button>
+                <h2>{{ currentDate}}</h2>
+                <button (click)="changeMonth(1)">Sonraki</button>
+            </div> -->
+            <div class="daysOfTheWeek" *ngFor="let day of daysOfWeek;">
                 {{day.name}}
             </div>
+            <div *ngFor="let day of totalDays" class="daysOfTheMonth" [class.empty]="day === null">
+                {{ day !== null ? day : '' }}
+            </div>
         </div>
-        <!-- <div class="fdfd">
-            df
-        </div> -->
     </div>
 </div>
