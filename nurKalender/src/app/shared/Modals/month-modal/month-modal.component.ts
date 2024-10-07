@@ -1,16 +1,18 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-month-modal',
   standalone: true,
-  imports: [FormsModule],
+  imports: [NgFor, NgIf, FormsModule],
   templateUrl: './month-modal.component.html',
   styleUrl: './month-modal.component.scss'
 })
 export class MonthModalComponent {
   @Output() close = new EventEmitter<void>();
   @Output() monthSelected = new EventEmitter<number>();
+  @Input() monthNumber!: number;
 
   selectedMonth: number = new Date().getMonth(); // Default to the current month
 
@@ -28,6 +30,10 @@ export class MonthModalComponent {
     { id: 10, name: 'November' },
     { id: 11, name: 'December' }
   ];
+
+  ngOnInit(): void {
+    this.selectedMonth = this.monthNumber;
+  }
 
   confirmMonth() {
     this.monthSelected.emit(this.selectedMonth);

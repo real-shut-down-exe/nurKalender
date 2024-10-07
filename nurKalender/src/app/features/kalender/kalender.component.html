@@ -4,10 +4,10 @@
         <div class="header">
             <div class="header-child-left">
                 <span class="text-Month" (click)="openMonthModal()">
-                    September
+                    {{ currentMonthName }}
                 </span>
                 <span class="text-year" (click)="openYearModal()">
-                    2024
+                    {{ currentYearName }}
                 </span>
             </div>
             <div class="header-child-right">
@@ -47,8 +47,8 @@
     </div>
 </div>
 
-<app-year-modal *ngIf="isYearModalOpen" (close)="closeYearModal()" (yearSelected)="onYearSelected($event)">
+<app-year-modal *ngIf="isYearModalOpen" (close)="closeYearModal()" (yearSelected)="onYearSelected($event)" [yearNumber]="currentYearNumber">
 </app-year-modal>
 
-<app-month-modal *ngIf="isMonthModalOpen" (monthSelected)="onMonthSelected($event)" (close)="closeMonthModal()">">
+<app-month-modal *ngIf="isMonthModalOpen" (monthSelected)="onMonthSelected($event)" (close)="closeMonthModal()" [monthNumber]="currentMonthNumber">
 </app-month-modal>

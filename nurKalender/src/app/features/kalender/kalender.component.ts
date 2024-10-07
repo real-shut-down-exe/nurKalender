@@ -2,6 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { YearModalComponent } from '../../shared/Modals/year-modal/year-modal.component';
 import { MonthModalComponent } from "../../shared/Modals/month-modal/month-modal.component";
+import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-kalender',
@@ -28,6 +29,11 @@ export class KalenderComponent {
   lastDayOfMonth: number = 0;
   totalDays: (number | null)[] = [];
 
+  currentMonthName: string = "";
+  currentYearName: string = "";
+  currentMonthNumber: number = -1;
+  currentYearNumber: number = -1;
+
   isYearModalOpen: boolean = false;
   isMonthModalOpen: boolean = false;
 
@@ -39,6 +45,11 @@ export class KalenderComponent {
   loadCalendar(date: Date) {
     const year = date.getFullYear();
     const month = date.getMonth();
+
+    this.currentMonthName = this.getMonthName(month);
+    this.currentYearName = String(year);
+    this.currentMonthNumber = month;
+    this.currentYearNumber = year;
 
     // Ayın gün sayısını al
     const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -54,6 +65,15 @@ export class KalenderComponent {
 
     // Tüm günleri birleştir
     this.totalDays = [...emptySlotsBefore, ...this.daysInMonth, ...emptySlotsAfter];
+  }
+
+  getMonthName(month: number): string {
+    const monthNames: string[] = [
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August',
+      'September', 'October', 'November', 'December'
+    ];
+    return monthNames[month];
   }
 
   changeMonth(direction: number) {
