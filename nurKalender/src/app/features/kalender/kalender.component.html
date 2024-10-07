@@ -3,7 +3,7 @@
     <div class="container-header">
         <div class="header">
             <div class="header-child-left">
-                <span class="text-Month">
+                <span class="text-Month" (click)="openMonthModal()">
                     September
                 </span>
                 <span class="text-year" (click)="openYearModal()">
@@ -46,5 +46,9 @@
         </div>
     </div>
 </div>
+
 <app-year-modal *ngIf="isYearModalOpen" (close)="closeYearModal()" (yearSelected)="onYearSelected($event)">
 </app-year-modal>
+
+<app-month-modal *ngIf="isMonthModalOpen" (monthSelected)="onMonthSelected($event)" (close)="closeMonthModal()">">
+</app-month-modal>

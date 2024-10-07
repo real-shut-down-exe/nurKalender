@@ -1,0 +1,10 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+        <h2>Select Month</h2>
+        <select [(ngModel)]="selectedMonth">
+            <option *ngFor="let month of months" [value]="month.id">{{ month.name }}</option>
+        </select>
+        <button (click)="confirmMonth()">Confirm</button>
+        <button (click)="cancel()">Cancel</button>
+    </div>
+</div>
