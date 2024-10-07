@@ -1,10 +1,11 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { YearModalComponent } from '../../shared/Modals/year-modal/year-modal.component';
 
 @Component({
   selector: 'app-kalender',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, YearModalComponent],
   templateUrl: './kalender.component.html',
   styleUrl: './kalender.component.scss'
 })
@@ -25,6 +26,7 @@ export class KalenderComponent {
   firstDayOfMonth: number = 0;
   lastDayOfMonth: number = 0;
   totalDays: (number | null)[] = [];
+  isYearModalOpen: boolean = false;
 
 
   ngOnInit(): void {
@@ -54,5 +56,19 @@ export class KalenderComponent {
   changeMonth(direction: number) {
     this.currentDate.setMonth(this.currentDate.getMonth() + direction);
     this.loadCalendar(this.currentDate);
+  }
+
+  openYearModal() {
+    this.isYearModalOpen = true;
+  }
+
+  closeYearModal() {
+    this.isYearModalOpen = false;
+  }
+
+  onYearSelected(year: number) {
+    this.currentDate.setFullYear(year);
+    this.loadCalendar(this.currentDate);
+    this.closeYearModal();
   }
 }

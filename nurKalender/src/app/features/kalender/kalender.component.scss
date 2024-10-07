@@ -46,6 +46,7 @@ $daysBgColor : #323234;
 
             .text-year {
                 color: $colorLight;
+                cursor: pointer;
             }
         }
 
@@ -88,11 +89,16 @@ $daysBgColor : #323234;
                 color: rgb(246, 247, 248);
                 margin: 0vw 0.1vw;
                 margin-bottom: 0.6vw !important;
-                
-                .dayName{
+
+                .dayName {
                     @include singleDays;
                     text-align: center;
                 }
+            }
+
+            .daysOfTheMonth:hover {
+                transform: scale(1.05);
+                /* Elementi %5 büyütür */
             }
 
             .daysOfTheMonth {
@@ -102,6 +108,7 @@ $daysBgColor : #323234;
                 padding: 0.8vw;
                 height: 5vw;
                 position: relative;
+                transition: transform 0.2s ease-in-out;
 
                 .invoices {
                     // background-color: antiquewhite;
@@ -182,7 +189,7 @@ $daysBgColor : #323234;
                     margin: 0vw 0.4vw;
                     margin-bottom: 1.5vw !important;
 
-                    .dayName{
+                    .dayName {
                         font-weight: 600;
                         font-size: larger;
                         font-size: 3vw;

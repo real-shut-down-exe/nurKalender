@@ -6,7 +6,7 @@
                 <span class="text-Month">
                     September
                 </span>
-                <span class="text-year">
+                <span class="text-year" (click)="openYearModal()">
                     2024
                 </span>
             </div>
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="kalenderContainer">
         <div class="kalender">
             <div class="month">
@@ -46,3 +46,5 @@
         </div>
     </div>
 </div>
+<app-year-modal *ngIf="isYearModalOpen" (close)="closeYearModal()" (yearSelected)="onYearSelected($event)">
+</app-year-modal>
