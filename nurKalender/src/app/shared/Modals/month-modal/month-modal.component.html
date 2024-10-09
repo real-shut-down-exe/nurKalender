@@ -1,5 +1,5 @@
-<div class="modal-overlay">
-    <div class="modal-content">
+<div class="modal-overlay" (click)="cancel()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
         <h2>Select Month</h2>
         <select [(ngModel)]="selectedMonth">
             <option *ngFor="let month of months" [value]="month.id">{{ month.name }}</option>

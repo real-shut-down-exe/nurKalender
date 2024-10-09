@@ -10,8 +10,20 @@
     align-items: center;
 }
 
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .modal-content {
     background: white;
     padding: 20px;
     border-radius: 8px;
+    animation: modalSlideIn 0.3s ease;
 }
