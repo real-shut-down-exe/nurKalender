@@ -1,8 +1,7 @@
-<div class="modal-overlay">
-    <div class="modal-content">
+<div class="modal-overlay" (click)="cancel()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
         <h2>Select Year</h2>
-        <input type="number" [(ngModel)]="selectedYear" />
-        <button (click)="confirmYear()">Confirm</button>
-        <button (click)="cancel()">Cancel</button>
+        <input type="number" [(ngModel)]="selectedYear" class="custom-input-number" />
+        <button (click)="confirmYear()" class="selectButton">Select</button>
     </div>
 </div>
