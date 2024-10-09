@@ -41,7 +41,28 @@ $daysBgColor : #323234;
             letter-spacing: calc($standartViewportView / 10);
 
             .text-Month {
+                position: relative;
+                display: inline-block; // Inline olarak tutmak için
+                cursor: pointer; // İmleci değiştirir
+                
                 color: $colorDark;
+                transition: border-bottom 0.3s ease-in-out;
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 5px; /* Border kalınlığı */
+                    background-color: $colorDark; /* Border rengi */
+                    transition: width 0.3s ease; /* Genişlik animasyonu */
+                    // border-bottom: solid 5px #d7d7d7;
+                }
+
+                &:hover::after {
+                    width: 100%; // Hover olduğunda genişliği tam genişlik yap
+                }
             }
 
             .text-year {
