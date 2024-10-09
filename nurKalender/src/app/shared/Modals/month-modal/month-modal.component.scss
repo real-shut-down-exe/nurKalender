@@ -26,4 +26,46 @@
     padding: 20px;
     border-radius: 8px;
     animation: modalSlideIn 0.3s ease;
+    width: 15%;
+}
+
+// select
+.custom-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #767676;
+    border-radius: 5px;
+    font-size: 16px;
+    appearance: none;
+    margin: 10px 0px;
+}
+
+.custom-select:focus {
+    outline: none; /* Remove outline on focus */
+    border-color: #2b2b2b; /* Change border color on focus */
+}
+
+.custom-option {
+    padding: 20px !important; /* Space inside option */
+    background-color: #f8f9fa; /* Background color for options */
+    color: #343a40; /* Text color for options */
+}
+
+.custom-option:hover {
+    background-color: #e9ecef; /* Change background color on hover */
+}
+
+
+// Buttons
+.selectButton{
+    padding: 12px 0px;
+    width: 100%;
+    border-radius: 4px;
+    border: solid 1px #c5c5c5;
+    font-size: 16px;
+    background-color:  transparent;
+
+    &:hover{
+        background-color: #95f39827;
+    }
 }
