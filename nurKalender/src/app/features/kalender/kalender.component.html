@@ -3,12 +3,12 @@
     <div class="container-header">
         <div class="header">
             <div class="header-child-left">
-                <span class="text-Month" (click)="openMonthModal()">
+                <button class="text-Month" (click)="openMonthModal()">
                     {{ currentMonthName }}
-                </span>
-                <span class="text-year" (click)="openYearModal()">
+                </button>
+                <button class="text-year" (click)="openYearModal()">
                     {{ currentYearName }}
-                </span>
+                </button>
             </div>
             <div class="header-child-right">
                 <span class="monthly-spand">
@@ -34,7 +34,7 @@
                         {{day.name}}
                     </p>
                 </div>
-                <div *ngFor="let day of totalDays" class="daysOfTheMonth" [class.empty]="day === null">
+                <div *ngFor="let day of totalDays" class="daysOfTheMonth" [class.empty]="day === null" [class.today]="isToday(day)">
                     <div class="invoices" *ngIf="day !== null">
                         
                     </div>

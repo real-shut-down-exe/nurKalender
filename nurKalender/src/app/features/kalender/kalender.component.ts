@@ -109,5 +109,19 @@ export class KalenderComponent {
     this.loadCalendar(this.currentDate);
     this.closeMonthModal();
   }
+
+  isToday(day: number | null): boolean {
+    if (day === null) {
+      return false;
+    }
+
+    const today = new Date();
+    return (
+      day === today.getDate() &&
+      this.currentMonthNumber === today.getMonth() &&
+      this.currentYearNumber === today.getFullYear()
+    );
+  }
+
 }
 

@@ -41,22 +41,29 @@ $daysBgColor : #323234;
             letter-spacing: calc($standartViewportView / 10);
 
             .text-Month {
+                font-size: calc($standartViewportView - 2vw);
                 position: relative;
                 display: inline-block; // Inline olarak tutmak için
                 cursor: pointer; // İmleci değiştirir
-                
+
                 color: $colorDark;
                 transition: border-bottom 0.3s ease-in-out;
+                border: none;
+                background-color: transparent;
+                font-weight: bolder;
 
-                &::after{
+                &::after {
                     content: '';
                     position: absolute;
                     left: 0;
                     bottom: 0;
                     width: 0;
-                    height: 5px; /* Border kalınlığı */
-                    background-color: $colorDark; /* Border rengi */
-                    transition: width 0.3s ease; /* Genişlik animasyonu */
+                    height: 3px;
+                    /* Border kalınlığı */
+                    background-color: $colorDark;
+                    /* Border rengi */
+                    transition: width 0.3s ease;
+                    /* Genişlik animasyonu */
                     // border-bottom: solid 5px #d7d7d7;
                 }
 
@@ -66,6 +73,7 @@ $daysBgColor : #323234;
             }
 
             .text-year {
+                font-size: calc($standartViewportView - 2vw);
                 position: relative;
                 display: inline-block; // Inline olarak tutmak için
                 cursor: pointer; // İmleci değiştirir
@@ -73,16 +81,22 @@ $daysBgColor : #323234;
                 color: $colorLight;
                 cursor: pointer;
                 margin-left: 10px;
+                border: none;
+                background-color: transparent;
+                font-weight: bolder;
 
-                &::after{
+                &::after {
                     content: '';
                     position: absolute;
                     left: 0;
                     bottom: 0;
                     width: 0;
-                    height: 5px; /* Border kalınlığı */
-                    background-color: $colorDark; /* Border rengi */
-                    transition: width 0.3s ease; /* Genişlik animasyonu */
+                    height: 3px;
+                    /* Border kalınlığı */
+                    background-color: $colorDark;
+                    /* Border rengi */
+                    transition: width 0.3s ease;
+                    /* Genişlik animasyonu */
                     // border-bottom: solid 5px #d7d7d7;
                 }
 
@@ -169,6 +183,16 @@ $daysBgColor : #323234;
                     font-size: 1.3vw;
                     color: white;
                 }
+            }
+
+            .today {
+                background-color: $colorLight;
+                box-shadow:
+                    #ffffff 0px 0px 1px,
+                    #0ce940c6 0px 0px 5px,
+                    #0a4800 0px 0px 8px;
+                border: 1px solid #0ce940c6;
+                border-radius: 1vw;
             }
 
             .empty {
