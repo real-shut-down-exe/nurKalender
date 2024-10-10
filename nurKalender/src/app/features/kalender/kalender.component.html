@@ -54,4 +54,4 @@
 <app-month-modal *ngIf="isMonthModalOpen" (monthSelected)="onMonthSelected($event)" (close)="closeMonthModal()" [monthNumber]="currentMonthNumber">
 </app-month-modal>
 
-<app-tooltip *ngIf="show" [text]="'This is the tooltip info!'+ ' ' + dayId"></app-tooltip>
+<app-tooltip *ngIf="show" [text]="dayId"></app-tooltip>

@@ -1,10 +1,10 @@
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tooltip',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, NgFor],
   templateUrl: './tooltip.component.html',
   styleUrl: './tooltip.component.scss'
 })
