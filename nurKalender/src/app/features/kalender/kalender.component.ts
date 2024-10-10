@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { YearModalComponent } from '../../shared/Modals/year-modal/year-modal.component';
 import { MonthModalComponent } from "../../shared/Modals/month-modal/month-modal.component";
 import { NONE_TYPE } from '@angular/compiler';
+import { TooltipComponent } from '../../shared/Tooltips/tooltip/tooltip.component';
 
 @Component({
   selector: 'app-kalender',
   standalone: true,
-  imports: [NgFor, NgIf, YearModalComponent, MonthModalComponent],
+  imports: [NgFor, NgIf, YearModalComponent, MonthModalComponent, TooltipComponent],
   templateUrl: './kalender.component.html',
   styleUrl: './kalender.component.scss'
 })
@@ -37,6 +38,7 @@ export class KalenderComponent {
   isYearModalOpen: boolean = false;
   isMonthModalOpen: boolean = false;
 
+  show = false;
 
   ngOnInit(): void {
     this.loadCalendar(this.currentDate);
@@ -122,6 +124,20 @@ export class KalenderComponent {
       this.currentYearNumber === today.getFullYear()
     );
   }
+  
+  dayId: any = null; // dayId değeri
 
+  showTooltip(currentDay:any) {
+    if (currentDay) {
+      this.dayId = currentDay;
+      this.show = true;
+    }
+  }
+
+  hideTooltip(currentDay:any) {
+    if (currentDay) {
+      this.show = false;
+    }
+  }
 }
 
