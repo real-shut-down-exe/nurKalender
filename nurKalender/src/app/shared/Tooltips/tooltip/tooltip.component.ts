@@ -10,6 +10,10 @@ import { Component, HostListener, Input } from '@angular/core';
 })
 export class TooltipComponent {
   @Input() text: string = '';
+
+  @Input() currentMonthName : string = '';
+  @Input() currentYearName : string = '';
+  
   x: number = 0;
   y: number = 0;
   visible: boolean = false; // Tooltip görünürlüğü için bir durum ekliyoruz

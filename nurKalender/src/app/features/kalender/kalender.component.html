@@ -23,7 +23,7 @@
 
     <div class="kalenderContainer">
         <div class="kalender">
-            <div class="month">
+            <div class="month" (mouseleave)="hideTooltip()">
                 <!-- <div class="header">
                     <button (click)="changeMonth(-1)">Önceki</button>
                     <h2>{{ currentDate}}</h2>
@@ -34,14 +34,13 @@
                         {{day.name}}
                     </p>
                 </div>
-                <div *ngFor="let day of totalDays" class="daysOfTheMonth" [class.empty]="day === null" [class.today]="isToday(day)" (mouseenter)="showTooltip(day)" (mouseleave)="hideTooltip(day)">
+                <div *ngFor="let day of totalDays" class="daysOfTheMonth" [class.empty]="day === null" [class.today]="isToday(day)" (mouseenter)="showTooltip(day)">
                     <div class="invoices" *ngIf="day !== null">
                         
                     </div>
                     <div class="numberOfDays">
                         {{ day !== null ? day : '' }}
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -54,4 +53,5 @@
 <app-month-modal *ngIf="isMonthModalOpen" (monthSelected)="onMonthSelected($event)" (close)="closeMonthModal()" [monthNumber]="currentMonthNumber">
 </app-month-modal>
 
-<app-tooltip *ngIf="show" [text]="dayId"></app-tooltip>
+<!-- <app-tooltip *ngIf="show" [text]="dayId" [currentMonthName]="currentMonthName" [currentYearName]="currentYearName"></app-tooltip> -->
+<app-tooltip [text]="dayId" [currentMonthName]="currentMonthName" [currentYearName]="currentYearName"></app-tooltip>

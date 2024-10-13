@@ -186,13 +186,10 @@ $daysBgColor : #323234;
             }
 
             .today {
-                background-color: $colorLight;
-                box-shadow:
-                    #ffffff 0px 0px 1px,
-                    #0ce940c6 0px 0px 5px,
-                    #0a4800 0px 0px 8px;
-                border: 1px solid #0ce940c6;
+                box-shadow: #ffffff 0px 0px 1px, rgba(12, 233, 64, 0.7764705882) 0px 0px 5px, #0a4800 0px 0px 8px;
+                border: 1px solid rgb(0 135 32 / 68%);
                 border-radius: 1vw;
+                background-color: #37e360b8;
             }
 
             .empty {

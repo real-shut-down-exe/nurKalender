@@ -124,20 +124,18 @@ export class KalenderComponent {
       this.currentYearNumber === today.getFullYear()
     );
   }
-  
+
   dayId: any = null; // dayId değeri
 
-  showTooltip(currentDay:any) {
+  showTooltip(currentDay: any) {
     if (currentDay) {
       this.dayId = currentDay;
       this.show = true;
     }
   }
 
-  hideTooltip(currentDay:any) {
-    if (currentDay) {
-      this.show = false;
-    }
+  hideTooltip() {
+    this.show = false;
   }
 }
 

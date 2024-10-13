@@ -1,30 +1,34 @@
+$blur: blur(9px);
+
 .tooltip {
     position: fixed;
     left: 0px;
-    top: 10px;
+    top: 20px;
+    bottom: 20px;
     border-radius: 0px 10px 10px 0px;
     padding: 10px 20px 20px 20px;
     width: 17%;
-    bottom: 10px;
     box-shadow:
         #ffffff 0px 0px 1px,
         #0ce940c6 0px 0px 5px,
         #0a4800 0px 0px 8px;
-
     overflow: hidden;
     text-overflow: ellipsis;
-
     background-color: #333;
     color: #fff;
     z-index: 1000;
-    pointer-events: none;
+    pointer-events: auto;
     transition: opacity 0.2s ease;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
 .mainContainer {
     width: 100%;
     display: flex;
-    border-bottom: #818286a2 1px solid;
+    border-bottom: #8182861b 4px solid;
     padding: 15px 0px 15px 0px;
 
     .leftSide {
@@ -102,5 +106,63 @@
                 background-color: #164b0e;
             }
         }
+    }
+}
+
+.header {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    text-align: center;
+    border-bottom: 1px double #7d7d7db0;
+    margin-bottom: 1vw;
+    padding-bottom: 0.6vw;
+}
+
+.tooltip-footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .footerTitle{
+        font-size: 1.2vw;
+        font-weight: bold;
+        color: #959595;
+        display: flex;
+        align-items: flex-end;
+    }
+    .totalSpend{
+        font-weight: bold;
+        color: white;
+        font-size: 2em;
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.scrollArea {
+    max-height: 45rem; // Burada istediğiniz yüksekliği ayarlayın
+    overflow-y: auto; // Dikey kaydırmayı etkinleştirin
+    scrollbar-color: rgba(255, 0, 0, 0.395) rgba(255, 166, 0, 0.166);
+    scrollbar-width: thin;
+
+    scrollbar-width: none; // Firefox için kaydırma çubuğunu gizle
+
+    // Chrome, Edge ve Safari için kaydırma çubuğunu gizle
+    &::-webkit-scrollbar {
+        display: none; // Kaydırma çubuğunu gizler
+    }
+}
+
+.scrollAreax {
+    max-height: 100%; // Burada istediğiniz yüksekliği ayarlayın
+    overflow-y: auto; // Dikey kaydırmayı etkinleştirin
+    scrollbar-color: rgba(255, 0, 0, 0.395) rgba(255, 166, 0, 0.166);
+    scrollbar-width: thin;
+
+    scrollbar-width: none; // Firefox için kaydırma çubuğunu gizle
+
+    // Chrome, Edge ve Safari için kaydırma çubuğunu gizle
+    &::-webkit-scrollbar {
+        display: none; // Kaydırma çubuğunu gizler
     }
 }
